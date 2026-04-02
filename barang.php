@@ -192,34 +192,40 @@ $result = $conn->query("SELECT * FROM barang ORDER BY id_barang DESC");
 <body>
 
     <div class="wrapper d-flex">
-        <aside class="main-sidebar shadow">
-            <div class="d-flex align-items-center mb-5 px-2">
+        <aside class="main-sidebar p-3 shadow">
+            <div class="d-flex align-items-center mb-4 px-2">
                 <div class="bg-primary p-2 rounded-3 me-2 text-white">
                     <i class="fas fa-boxes-stacked fa-lg"></i>
                 </div>
-                <h5 class="text-white mb-0 fw-bold sidebar-brand-text">INVENTARIS<br> <span style="color:var(--accent-blue)">GUDANG</span></h5>
+                <h5 class="text-white mb-0 fw-bold">INVENTARIS <span class="text-primary">GUDANG</span></h5>
             </div>
 
             <nav class="nav flex-column">
-                <a href="dashboard.php" class="nav-link">
-                    <i class="fas fa-th-large me-3"></i> <span>Dashboard</span>
-                </a>
-                <a href="barang.php" class="nav-link active">
-                    <i class="fas fa-box me-3"></i> <span>Data Barang</span>
-                </a>
-                <a href="transaksi_masuk.php" class="nav-link">
-                    <i class="fas fa-file-import me-3"></i> <span>Barang Masuk</span>
-                </a>
-                <a href="transaksi_keluar.php" class="nav-link">
-                    <i class="fas fa-file-export me-3"></i> <span>Barang Keluar</span>
+                <a href="dashboard.php" class="nav-link <?= ($active_page == 'dashboard') ? 'active' : ''; ?>">
+                    <i class="fas fa-th-large me-2"></i> Dashboard
                 </a>
 
-                <div style="margin-top: 100px;">
-                    <hr class="text-secondary opacity-25">
-                    <a href="javascript:void(0)" onclick="confirmLogout()" class="nav-link text-danger">
-                        <i class="fas fa-power-off me-3"></i> <span>Logout</span>
-                    </a>
-                </div>
+                <a href="barang.php" class="nav-link <?= ($active_page == 'data_barang') ? 'active' : ''; ?>">
+                    <i class="fas fa-clipboard-check me-2"></i> Data Barang
+                </a>
+
+                <a href="transaksi_masuk.php" class="nav-link <?= ($active_page == 'transaksi_masuk') ? 'active' : ''; ?>">
+                    <i class="fas fa-file-import me-2"></i> Transaksi Masuk
+                </a>
+
+                <a href="transaksi_keluar.php" class="nav-link <?= ($active_page == 'transaksi_keluar') ? 'active' : ''; ?>">
+                    <i class="fas fa-file-export me-2"></i> Transaksi Keluar
+                </a>
+
+                <hr class="text-secondary">
+
+                <a href="admin.php" class="nav-link <?= ($active_page == 'admin') ? 'active' : ''; ?>">
+                    <i class="fas fa-users-cog me-2"></i>Manajemen Akun
+                </a>
+
+                <a href="logout.php" class="nav-link text-danger mt-5">
+                    <i class="fas fa-power-off me-2"></i> Logout
+                </a>
             </nav>
         </aside>
 

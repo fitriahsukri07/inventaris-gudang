@@ -154,31 +154,42 @@ for ($i = 6; $i >= 0; $i--) {
 
 <body>
 
-    <aside class="main-sidebar">
+    <aside class="main-sidebar p-3 shadow">
         <div class="d-flex align-items-center mb-4 px-2">
             <div class="bg-primary p-2 rounded-3 me-2 text-white">
-                <i class="fas fa-boxes-stacked"></i>
+                <i class="fas fa-boxes-stacked fa-lg"></i>
             </div>
-            <h6 class="text-white mb-0 fw-bold">F-ZONE<br><span class="text-primary">INVENTARIS</span></h6>
+            <h5 class="text-white mb-0 fw-bold">INVENTARIS <span class="text-primary">GUDANG</span></h5>
         </div>
 
         <nav class="nav flex-column">
-            <a href="dashboard.php" class="nav-link active"><i class="fas fa-th-large me-2"></i> Dashboard</a>
-            <a href="barang.php" class="nav-link"><i class="fas fa-box me-2"></i> Data Barang</a>
-            <a href="transaksi_masuk.php" class="nav-link"><i class="fas fa-arrow-down me-2"></i> Barang Masuk</a>
-            <a href="transaksi_keluar.php" class="nav-link"><i class="fas fa-arrow-up me-2"></i> Barang Keluar</a>
-            <hr class="text-secondary opacity-25">
+            <a href="dashboard.php" class="nav-link <?= ($active_page == 'dashboard') ? 'active' : ''; ?>">
+                <i class="fas fa-th-large me-2"></i> Dashboard
+            </a>
 
-            <?php if ($role_user == 'admin'): ?>
-                <a href="admin.php" class="nav-link"><i class="fas fa-users-cog me-2"></i> Manajemen Akun</a>
-            <?php endif; ?>
+            <a href="barang.php" class="nav-link <?= ($active_page == 'data_barang') ? 'active' : ''; ?>">
+                <i class="fas fa-clipboard-check me-2"></i> Data Barang
+            </a>
 
-            <a href="javascript:void(0)" onclick="confirmLogout()" class="nav-link text-danger mt-4">
-                <i class="fas fa-power-off me-2"></i> Keluar
+            <a href="transaksi_masuk.php" class="nav-link <?= ($active_page == 'transaksi_masuk') ? 'active' : ''; ?>">
+                <i class="fas fa-file-import me-2"></i> Transaksi Masuk
+            </a>
+
+            <a href="transaksi_keluar.php" class="nav-link <?= ($active_page == 'transaksi_keluar') ? 'active' : ''; ?>">
+                <i class="fas fa-file-export me-2"></i> Transaksi Keluar
+            </a>
+
+            <hr class="text-secondary">
+
+            <a href="admin.php" class="nav-link <?= ($active_page == 'admin') ? 'active' : ''; ?>">
+                <i class="fas fa-users-cog me-2"></i>Manajemen Akun
+            </a>
+
+            <a href="logout.php" class="nav-link text-danger mt-5">
+                <i class="fas fa-power-off me-2"></i> Logout
             </a>
         </nav>
     </aside>
-
     <main class="content-wrapper">
         <div class="d-flex justify-content-between align-items-end mb-4">
             <div>
